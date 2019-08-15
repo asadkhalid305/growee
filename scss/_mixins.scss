@@ -1,0 +1,10 @@
+@mixin flex($direction: null, $justify: null) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+@mixin wrapper($width: 100%) {
+    width: $width;
+    margin: 0 auto;
+}

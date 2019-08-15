@@ -1,0 +1,81 @@
+//define variables
+@import "variables";
+
+//define functions
+@import "functions";
+
+//define mixins
+@import "mixins";
+
+//define extentions
+@import "extentions";
+
+//define globals
+@import "globals";
+
+//media queries
+@import "media-queries";
+
+
+body {
+    @include wrapper($width: 90%);
+    @include flex($direction: column);
+
+    @extend %nav-bar;
+
+    section {
+        flex-basis: 65vh;
+        @include flex($direction: column);
+
+        #section-1 {
+            flex-basis: 40vh;
+            @include flex($direction: column);
+            padding-top: 5vh;
+
+            #cover {
+                flex-basis: 20vh;
+                text-align: center;
+                font-size: 2em;
+                color: #9a9a9a;
+            }
+
+            #cover-logo {
+                text-align: center;
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+
+        #section-2 {
+            flex-basis: 20vh;
+            @include flex($direction: column, $justify: flex-end);
+
+            #login-text {
+                text-align: center;
+                font-size: 1em;
+                padding-bottom: 2em;
+            }
+
+            #login-btn {
+                @include flex($justify: center);
+
+                a {
+                    @extend %green-btn-filled
+                }
+            }
+        }
+
+    }
+
+
+    footer {
+        @extend %footer;
+
+        #bar1 {
+            background-color: #61e48b !important;
+
+        }
+    }
+}

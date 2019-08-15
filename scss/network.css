@@ -1,0 +1,173 @@
+body footer {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer div {
+  background-color: #e7e7e7;
+  margin: auto;
+  width: 25%;
+  padding: 2px 0;
+  border-radius: 25px;
+}
+
+body nav {
+  -ms-flex-preferred-size: 15vh;
+      flex-basis: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body nav img {
+  width: 40%;
+  margin: auto;
+}
+
+body section #section-3 a {
+  width: 80%;
+  padding: 0.75em 0;
+  text-align: center;
+  border-radius: 1.375em;
+  border: 2px solid #61e48b;
+  color: #61e48b;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: initial;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body section {
+  -ms-flex-preferred-size: 65vh;
+      flex-basis: 65vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body section #section-1 {
+  -ms-flex-preferred-size: 24vh;
+      flex-basis: 24vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 5vh;
+}
+
+body section #section-1 #cover {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  text-align: center;
+  font-size: 2em;
+  color: #9a9a9a;
+}
+
+body section #section-1 #bar {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #e7e7e7;
+  width: 20%;
+  padding: 2px 0;
+  border-radius: 25px;
+}
+
+body section #section-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 32vh;
+      flex-basis: 32vh;
+}
+
+body section #section-2 #networks {
+  -ms-flex-preferred-size: 28vh;
+      flex-basis: 28vh;
+  overflow: scroll;
+}
+
+body section #section-2 #networks .network {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body section #section-2 #networks .network a {
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
+}
+
+body section #section-2 #networks .network img {
+  height: 16px;
+  margin: auto 0;
+}
+
+body section #section-2 #networks .network .wifi-signal {
+  margin-right: 12px !important;
+}
+
+body section #section-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer #bar1,
+body footer #bar2 {
+  background-color: #61e48b !important;
+}
+/*# sourceMappingURL=network.css.map */
