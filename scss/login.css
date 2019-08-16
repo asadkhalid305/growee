@@ -1,3 +1,30 @@
+body section #section-2 #login-btn a {
+  width: 80%;
+  padding: 0.75em 0;
+  text-align: center;
+  border-radius: 1.375em;
+  background-color: #61e48b;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body nav {
+  -ms-flex-preferred-size: 15vh;
+      flex-basis: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body nav img {
+  width: 40%;
+  margin: auto;
+}
+
 body footer {
   -ms-flex-preferred-size: 20vh;
       flex-basis: 20vh;
@@ -17,33 +44,6 @@ body footer div {
   border-radius: 25px;
 }
 
-body nav {
-  -ms-flex-preferred-size: 15vh;
-      flex-basis: 15vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-body nav img {
-  width: 40%;
-  margin: auto;
-}
-
-body section #section-2 #login-btn a {
-  width: 80%;
-  padding: 0.75em 0;
-  text-align: center;
-  border-radius: 1.375em;
-  background-color: #61e48b;
-  color: white;
-  font-size: 1em;
-  font-weight: 600;
-}
-
 a {
   text-decoration: none;
   outline: none;
@@ -55,9 +55,46 @@ input {
   border: none;
 }
 
+@media (min-width: 415px) {
+  section #section-1 #cover {
+    font-size: 3.5em !important;
+    -ms-flex-preferred-size: 18vh !important;
+        flex-basis: 18vh !important;
+  }
+  footer div {
+    padding: 4px 0 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  section #section-1 #cover {
+    font-size: 5em !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: start !important;
+  }
+  nav img {
+    width: 12% !important;
+    margin: auto 0 !important;
+  }
+  section,
+  footer {
+    width: 40% !important;
+    margin: 0 auto !important;
+  }
+  section #section-1 #cover {
+    font-size: 2.5em !important;
+  }
+}
+
 body {
-  width: 90%;
-  margin: 0 auto;
+  width: 90% !important;
+  margin: 0 auto !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,5 +177,34 @@ body section #section-2 #login-btn {
 
 body footer #bar1 {
   background-color: #61e48b !important;
+}
+
+@media (min-width: 416px) {
+  section #section-2 #login-text {
+    font-size: 2em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 2em !important;
+  }
+}
+
+@media (min-width: 769px) {
+  section #section-2 #login-text {
+    font-size: 2.5em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 2.5em !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  section #section-2 #login-text {
+    font-size: 1.5em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 1.2em !important;
+    width: 60% !important;
+    padding: 0.6em 0;
+  }
 }
 /*# sourceMappingURL=login.css.map */

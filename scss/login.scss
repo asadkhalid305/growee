@@ -75,7 +75,56 @@ body {
 
         #bar1 {
             background-color: #61e48b !important;
+        }
+    }
+}
 
+@include for-tablet($min: 416px) {
+    section {
+        #section-2 {
+            #login-text {
+                font-size: 2em !important;
+            }
+
+            #login-btn {
+                a {
+                    font-size: 2em !important;
+                }
+            }
+        }
+    }
+}
+
+@include for-tablet($min: 769px) {
+    section {
+        #section-2 {
+            #login-text {
+                font-size: 2.5em !important;
+            }
+
+            #login-btn {
+                a {
+                    font-size: 2.5em !important;
+                }
+            }
+        }
+    }
+}
+
+@include for-desktop($min: 1025px) {
+    section {
+        #section-2 {
+            #login-text {
+                font-size: 1.5em !important;
+            }
+
+            #login-btn {
+                a {
+                    font-size: 1.2em !important;
+                    width: 60% !important;
+                    padding: 0.6em 0;
+                }
+            }
         }
     }
 }

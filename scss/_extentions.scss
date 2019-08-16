@@ -1,33 +1,6 @@
-%footer {
-    flex-basis: 20vh;
-    display: flex;
-    justify-content: center;
-
-    div {
-        background-color: #e7e7e7;
-        margin: auto;
-        width: 25%;
-        padding: 2px 0;
-        border-radius: 25px;
-    }
-}
-
 %flex-display-column {
     display: flex;
     flex-direction: column;
-}
-
-%nav-bar {
-    nav {
-        flex-basis: 15vh;
-        display: flex;
-        justify-content: center;
-
-        img {
-            width: 40%;
-            margin: auto;
-        }
-    }
 }
 
 %green-btn-filled {
@@ -50,4 +23,31 @@
     color: #61e48b;
     font-size: 1em;
     font-weight: 600;
+}
+
+%nav-bar {
+    nav {
+        flex-basis: 15vh;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 40%;
+            margin: auto;
+        }
+    }
+}
+
+%footer {
+    flex-basis: 20vh;
+    display: flex;
+    justify-content: center;
+
+    div {
+        background-color: #e7e7e7;
+        margin: auto;
+        width: 25%;
+        padding: 2px 0;
+        border-radius: 25px;
+    }
 }

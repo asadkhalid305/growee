@@ -5,6 +5,42 @@
 }
 
 @mixin wrapper($width: 100%) {
-    width: $width;
-    margin: 0 auto;
+    width: $width !important;
+    margin: 0 auto !important;
+}
+
+// @mixin for-phone($max: none, $min: none) {
+//     @media (max-width: $max) and (min-width: $min) {
+//         @content;
+//     }
+// }
+
+// @mixin for-tablet($max: none, $min: none) {
+//     @media (max-width: $max) and (min-width: $min) {
+//         @content;
+//     }
+// }
+
+// @mixin for-desktop($max: none, $min: none) {
+//     @media (max-width: $max) and (min-width: $min) {
+//         @content;
+//     }
+// }
+
+@mixin for-phone($min: none) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin for-tablet($min: none) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin for-desktop($min: none) {
+    @media (min-width: $min) {
+        @content;
+    }
 }
