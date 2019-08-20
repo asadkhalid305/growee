@@ -57,6 +57,7 @@ $(document).ready(function () {
 
     //screen 5
     $("#logout-btn").click(function () {
+        console.log('hello');
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/auth`,
