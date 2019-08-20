@@ -13,10 +13,10 @@ $(document).ready(function () {
             url: `${baseUrl}/auth`,
             contentType: "application/json",
             dataType: "json",
-            data: {
+            data: JSON.stringify({
                 user: "admin",
                 password: "growee"
-            },
+            }),
         })
             .done((data) => {
                 console.log("Login success");
