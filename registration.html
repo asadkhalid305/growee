@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./favicon.png" />
     <link rel="stylesheet" href="./css/password.css">
     <title>Enter Registration Code</title>
 </head>
 
 <body>
     <nav>
-        <img src="./img/Logo.png" alt="main-logo">
+        <img src="./img/logo.png" alt="main-logo">
     </nav>
     <section>
         <div id="section-1">
@@ -25,10 +26,11 @@
         </div>
         <div id="section-2">
             <!-- error if password incorrect -->
+            <p id="error"></p>
             <input type="password" name="network-pass">
         </div>
         <div id="section-3">
-            <a id="connect-btn" href="./success.html">Register</a>
+            <a id="connect-btn" href="#">Register</a>
         </div>
     </section>
     <footer>
@@ -37,6 +39,9 @@
         <div id="bar3"></div>
         <div id="bar4" class="finish"></div>
     </footer>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js//registration.js"></script>
 </body>
 
 </html>

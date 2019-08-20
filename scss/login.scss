@@ -62,7 +62,13 @@ body {
                 @include flex($justify: center);
 
                 a {
-                    @extend %green-btn-filled
+                    &:first-child {
+                        @extend %green-btn-filled;
+                    }
+
+                    &:last-child {
+                        @extend %green-btn-hollow;
+                    }
                 }
             }
         }

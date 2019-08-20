@@ -1,0 +1,220 @@
+body section #section-2 #login-btn a:first-child {
+  width: 80%;
+  padding: 0.75em 0;
+  text-align: center;
+  border-radius: 1.375em;
+  background-color: #61e48b;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body section #section-2 #login-btn a:last-child {
+  width: 80%;
+  padding: 0.75em 0;
+  text-align: center;
+  border-radius: 1.375em;
+  border: 2px solid #61e48b;
+  color: #61e48b;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body nav {
+  -ms-flex-preferred-size: 15vh;
+      flex-basis: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body nav img {
+  width: 40%;
+  margin: auto;
+}
+
+body footer {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer div {
+  background-color: #e7e7e7;
+  margin: auto;
+  width: 25%;
+  padding: 2px 0;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: initial;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+@media (min-width: 415px) {
+  section #section-1 #cover {
+    font-size: 3.5em !important;
+    -ms-flex-preferred-size: 18vh !important;
+        flex-basis: 18vh !important;
+  }
+  footer div {
+    padding: 4px 0 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  section #section-1 #cover {
+    font-size: 5em !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: start !important;
+  }
+  nav img {
+    width: 12% !important;
+    margin: auto 0 !important;
+  }
+  section,
+  footer {
+    width: 40% !important;
+    margin: 0 auto !important;
+  }
+  section #section-1 #cover {
+    font-size: 2.5em !important;
+  }
+}
+
+body {
+  width: 90% !important;
+  margin: 0 auto !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body section {
+  -ms-flex-preferred-size: 65vh;
+      flex-basis: 65vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body section #section-1 {
+  -ms-flex-preferred-size: 40vh;
+      flex-basis: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 5vh;
+}
+
+body section #section-1 #cover {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  text-align: center;
+  font-size: 2em;
+  color: #9a9a9a;
+}
+
+body section #section-1 #cover-logo {
+  text-align: center;
+}
+
+body section #section-1 #cover-logo img {
+  width: 50%;
+}
+
+body section #section-2 {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body section #section-2 #login-text {
+  text-align: center;
+  font-size: 1em;
+  padding-bottom: 2em;
+}
+
+body section #section-2 #login-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer #bar1 {
+  background-color: #61e48b !important;
+}
+
+@media (min-width: 416px) {
+  section #section-2 #login-text {
+    font-size: 2em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 2em !important;
+  }
+}
+
+@media (min-width: 769px) {
+  section #section-2 #login-text {
+    font-size: 2.5em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 2.5em !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  section #section-2 #login-text {
+    font-size: 1.5em !important;
+  }
+  section #section-2 #login-btn a {
+    font-size: 1.2em !important;
+    width: 60% !important;
+    padding: 0.6em 0;
+  }
+}
+/*# sourceMappingURL=login.css.map */

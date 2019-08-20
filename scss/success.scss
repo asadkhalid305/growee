@@ -1,0 +1,94 @@
+//define variables
+@import "variables";
+
+//define functions
+@import "functions";
+
+//define mixins
+@import "mixins";
+
+//define extentions
+@import "extentions";
+
+//define globals
+@import "globals";
+
+//media queries
+@import "media-queries";
+
+
+body {
+    section {
+
+        #section-2 {
+            flex-basis: 0vh;
+            text-align: center;
+            font-size: 1em;
+            padding-bottom: 0em;
+        }
+
+        #section-3 {
+            @include flex($direction: column);
+            margin: auto 0;
+            margin-top: 6vh;
+
+            a {
+                margin: 0 auto;
+            }
+
+            #app-store-btn {
+                @extend %green-btn-filled;
+                margin-bottom: 2vh;
+            }
+
+            #logout-btn {
+                @extend %green-btn-hollow;
+            }
+        }
+    }
+}
+
+@include for-tablet($min: 416px) {
+    section {
+        #section-2 {
+            font-size: 2em !important;
+        }
+
+        #section-3 {
+            a {
+                font-size: 2em !important;
+            }
+        }
+    }
+}
+
+@include for-tablet($min: 769px) {
+    section {
+        #section-2 {
+            font-size: 2.5em !important;
+        }
+
+        #section-3 {
+            a {
+                font-size: 2.5em !important;
+            }
+        }
+    }
+}
+
+@include for-desktop($min: 1025px) {
+    section {
+
+        #section-2 {
+            font-size: 1.5em !important;
+        }
+
+        #section-3 {
+            a {
+                font-size: 1.2em !important;
+                width: 60% !important;
+                padding: 0.6em 0;
+            }
+        }
+    }
+}
