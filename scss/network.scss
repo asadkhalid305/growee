@@ -32,7 +32,7 @@ body {
             @include flex($direction: column);
             padding-top: 5vh;
 
-            #cover {
+            .cover {
                 flex-basis: 16vh;
                 text-align: center;
                 font-size: 2em;

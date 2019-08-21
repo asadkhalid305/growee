@@ -32,14 +32,14 @@ body {
             @include flex($direction: column);
             padding-top: 5vh;
 
-            #cover {
+            .cover {
                 flex-basis: 20vh;
                 text-align: center;
                 font-size: 2em;
                 color: #9a9a9a;
             }
 
-            #cover-logo {
+            .cover-logo {
                 text-align: center;
 
                 img {
@@ -62,17 +62,10 @@ body {
                 @include flex($justify: center);
 
                 a {
-                    &:first-child {
-                        @extend %green-btn-filled;
-                    }
-
-                    &:last-child {
-                        @extend %green-btn-hollow;
-                    }
+                    @extend %green-btn-filled;
                 }
             }
         }
-
     }
 
 

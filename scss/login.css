@@ -1,21 +1,10 @@
-body section #section-2 #login-btn a:first-child {
+body section #section-2 #login-btn a {
   width: 80%;
   padding: 0.75em 0;
   text-align: center;
   border-radius: 1.375em;
   background-color: #61e48b;
   color: white;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-body section #section-2 #login-btn a:last-child {
-  width: 80%;
-  padding: 0.75em 0;
-  text-align: center;
-  border-radius: 1.375em;
-  border: 2px solid #61e48b;
-  color: #61e48b;
   font-size: 1em;
   font-weight: 600;
 }
@@ -66,7 +55,7 @@ input {
 }
 
 @media (min-width: 415px) {
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 3.5em !important;
     -ms-flex-preferred-size: 18vh !important;
         flex-basis: 18vh !important;
@@ -77,7 +66,7 @@ input {
 }
 
 @media (min-width: 769px) {
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 5em !important;
   }
 }
@@ -97,7 +86,7 @@ input {
     width: 40% !important;
     margin: 0 auto !important;
   }
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 2.5em !important;
   }
 }
@@ -139,7 +128,7 @@ body section #section-1 {
   padding-top: 5vh;
 }
 
-body section #section-1 #cover {
+body section #section-1 .cover {
   -ms-flex-preferred-size: 20vh;
       flex-basis: 20vh;
   text-align: center;
@@ -147,11 +136,11 @@ body section #section-1 #cover {
   color: #9a9a9a;
 }
 
-body section #section-1 #cover-logo {
+body section #section-1 .cover-logo {
   text-align: center;
 }
 
-body section #section-1 #cover-logo img {
+body section #section-1 .cover-logo img {
   width: 50%;
 }
 

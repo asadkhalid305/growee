@@ -32,7 +32,7 @@ input {
 }
 
 @media (min-width: 415px) {
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 3.5em !important;
     -ms-flex-preferred-size: 18vh !important;
         flex-basis: 18vh !important;
@@ -43,7 +43,7 @@ input {
 }
 
 @media (min-width: 769px) {
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 5em !important;
   }
 }
@@ -63,7 +63,7 @@ input {
     width: 40% !important;
     margin: 0 auto !important;
   }
-  section #section-1 #cover {
+  section #section-1 .cover {
     font-size: 2.5em !important;
   }
 }
