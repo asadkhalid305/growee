@@ -177,12 +177,14 @@ $(document).ready(() => {
     //events
     //screen 1
     $("#login-btn").click(() => {
-        setTimeout(login, 5000)
+        // setTimeout(login, 5000)
+        login()
     });
 
     //screen 2
     $("#scan-btn").click(() => {
-        setTimeout(scan, 5000)
+        // setTimeout(scan, 5000)
+        scan()
     });
 
     //screen 3
@@ -201,15 +203,14 @@ $(document).ready(() => {
         $('#password-cover').text(n.items[n_idx].ssid)
     })
 
-
-
     //getting typed password from input field
     $('network-password').on('keyup', (e) => {
         n_pass = e.target.value
     })
 
     $("#network-connect-btn").click(() => {
-        setTimeout(getPassword, 5000)
+        // setTimeout(getPassword, 5000)
+        getPassword()
     });
 
     //screen 4
@@ -218,11 +219,13 @@ $(document).ready(() => {
     })
 
     $("#register-btn").click(() => {
-        setTimeout(getRigistrationCode, 5000)
+        // setTimeout(getRigistrationCode, 5000)
+        getRigistrationCode()
     });
 
     //screen 5
     $("#logout-btn").click(() => {
-        setTimeout(logout, 5000)
+        // setTimeout(logout, 5000)
+        logout()
     });
 });
