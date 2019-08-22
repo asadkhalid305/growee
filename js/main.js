@@ -1,11 +1,11 @@
-$(document).ready(function () {
+$(document).ready(() => {
     // global variables
     // var baseUrl = 'http://localhost:3010'
     var baseUrl = 'http://growee.local'
     var rc_code = ''
     var n_idx = ''
     var n_pass = ''
-    var n
+    var n = {}
 
     //functions
     function getScanResults() {
@@ -66,31 +66,7 @@ $(document).ready(function () {
             });
     }
 
-    //events
-    //screen 1
-    $("#login-btn").click(function () {
-        $.ajax({
-            type: 'POST',
-            url: `${baseUrl}/auth`,
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify({
-                user: "admin",
-                password: "growee"
-            }),
-        })
-            .done((data) => {
-                console.log("Login success");
-                console.log(data);
-                location.assign('./networks.html')
-            })
-            .fail((jqXHR, textStatus, errorThrown) => {
-                console.log("Login failed");
-            });
-    });
-
-    //screen 2
-    $("#scan-btn").click(function () {
+    function scan() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/wifi`,
@@ -109,27 +85,30 @@ $(document).ready(function () {
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Scan failed");
             });
-    });
+    }
 
-    //screen 3
-    //getting network id
-    $('#network').click(() => {
-        //id might be string
-        n_idx = $('#network').attr('id')
-        location.assign('./password.html')
-    })
+    function login() {
+        $.ajax({
+            type: 'POST',
+            url: `${baseUrl}/auth`,
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                user: "admin",
+                password: "growee"
+            }),
+        })
+            .done((data) => {
+                console.log("Login success");
+                console.log(data);
+                location.assign('./networks.html')
+            })
+            .fail((jqXHR, textStatus, errorThrown) => {
+                console.log("Login failed");
+            });
+    }
 
-    //getting all networks from session storage
-    n = sessionStorage.getItem('network')
-    //dynamically setting network name on password.html
-    $('#password-cover').text(n.items[n_idx].ssid)
-
-    //getting typed password from input field
-    $('network-password').on('keyup', (e) => {
-        n_pass = e.target.value
-    })
-
-    $("#network-connect-btn").click(function () {
+    function getPassword() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/wifi`,
@@ -150,14 +129,9 @@ $(document).ready(function () {
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Login failed");
             });
-    });
+    }
 
-    //screen 4
-    $('#rc-code').on('keyup', (e) => {
-        rc_code = e.target.value
-    })
-
-    $("#register-btn").click(function () {
+    function getRigistrationCode() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/registration`,
@@ -177,11 +151,9 @@ $(document).ready(function () {
                 $('input:password').val('');
                 console.log("Registration failed");
             });
-    });
+    }
 
-    //screen 5
-    $("#logout-btn").click(function () {
-        console.log('hello');
+    function logout() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/auth`,
@@ -200,5 +172,57 @@ $(document).ready(function () {
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Logout failed");
             });
+    }
+
+    //events
+    //screen 1
+    $("#login-btn").click(() => {
+        setTimeout(login, 5000)
+    });
+
+    //screen 2
+    $("#scan-btn").click(() => {
+        setTimeout(scan, 5000)
+    });
+
+    //screen 3
+    //getting network id
+    $('#network').click(() => {
+        //id might be string
+        n_idx = $('#network').attr('id')
+
+        //getting all networks from session storage
+        n = sessionStorage.getItem('network')
+
+        //change screen to password.html
+        location.assign('./password.html')
+
+        //dynamically setting network name on password.html
+        $('#password-cover').text(n.items[n_idx].ssid)
+    })
+
+
+
+    //getting typed password from input field
+    $('network-password').on('keyup', (e) => {
+        n_pass = e.target.value
+    })
+
+    $("#network-connect-btn").click(() => {
+        setTimeout(getPassword, 5000)
+    });
+
+    //screen 4
+    $('#rc-code').on('keyup', (e) => {
+        rc_code = e.target.value
+    })
+
+    $("#register-btn").click(() => {
+        setTimeout(getRigistrationCode, 5000)
+    });
+
+    //screen 5
+    $("#logout-btn").click(() => {
+        setTimeout(logout, 5000)
     });
 });
