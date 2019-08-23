@@ -322,6 +322,7 @@ $(document).ready(() => {
     //screen 1
     $("#login-btn").click(() => {
         login()
+        login()
     });
 
     //screen 2
@@ -332,8 +333,6 @@ $(document).ready(() => {
 
     //screen 3
     //getting network id
-
-
     //getting typed password from input field
     $('network-password').on('keyup', (e) => {
         n_pass = e.target.value
