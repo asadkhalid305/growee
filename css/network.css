@@ -9,6 +9,11 @@ body section #section-3 a {
   font-weight: 600;
 }
 
+body section #section-3 a.disabled {
+  color: #e7e7e7;
+  border-color: #e7e7e7;
+}
+
 body nav {
   -ms-flex-preferred-size: 15vh;
       flex-basis: 15vh;
