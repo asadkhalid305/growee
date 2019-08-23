@@ -5,6 +5,7 @@ $(document).ready(() => {
     var rc_code = ''
     var n_idx = ''
     var n_pass = ''
+    var timer;
     var n = {}
 
     //functions
@@ -60,9 +61,13 @@ $(document).ready(() => {
                 } else {
 
                 }
+		$("#scan-btn").removeClass('disabled')
+		timer = null;
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Get scan results failed");
+		$("#scan-btn").removeClass('disabled')
+		timer = null;
             });
     }
 
@@ -80,7 +85,8 @@ $(document).ready(() => {
                 console.log("Scan started");
                 console.log(data);
                 //location.assign('./networks.html')
-                setTimeout(getScanResults, 5000);
+		$("#scan-btn").addClass('disabled')
+                timer = setTimeout(getScanResults, 5000);
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Scan failed");
@@ -177,12 +183,13 @@ $(document).ready(() => {
     //events
     //screen 1
     $("#login-btn").click(() => {
-        setTimeout(login, 5000)
+        login()
     });
 
     //screen 2
     $("#scan-btn").click(() => {
-        setTimeout(scan, 5000)
+	if (!timer)
+		scan()
     });
 
     //screen 3
