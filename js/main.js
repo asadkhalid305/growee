@@ -3,6 +3,7 @@ $(document).ready(() => {
     // var baseUrl = 'http://localhost:3010'
     var baseUrl = 'http://growee.local'
     var timer;
+    $('.loader').css({ "display": "none" })
 
     //functions
     function getScanResults() {
@@ -58,13 +59,15 @@ $(document).ready(() => {
                 } else {
 
                 }
-		$("#scan-btn").removeClass('disabled')
-		timer = null;
+                $("#scan-btn").removeClass('disabled')
+                $('.loader').css({ "display": "none" })
+                timer = null;
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Get scan results failed");
-		$("#scan-btn").removeClass('disabled')
-		timer = null;
+                $("#scan-btn").removeClass('disabled')
+                timer = null;
+                $('.loader').css({ "display": "none" })
             });
     }
 
@@ -82,11 +85,12 @@ $(document).ready(() => {
                 console.log("Scan started");
                 console.log(data);
                 //location.assign('./networks.html')
-		$("#scan-btn").addClass('disabled')
+                $("#scan-btn").addClass('disabled')
                 timer = setTimeout(getScanResults, 5000);
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Scan failed");
+                $('.loader').css({ "display": "none" })
             });
     }
 
@@ -105,9 +109,11 @@ $(document).ready(() => {
                 console.log("Login success");
                 console.log(data);
                 location.assign('./')
+                $('.loader').css({ "display": "none" })
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Login failed");
+                $('.loader').css({ "display": "none" })
             });
     }
 
@@ -123,14 +129,17 @@ $(document).ready(() => {
         })
             .done((data) => {
                 console.log(data);
-		location.assign("./registration.html");
+                location.assign("./registration.html");
+                $('.loader').css({ "display": "none" })
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Store last tried AP failed");
-		location.assign("./");
+                location.assign("./");
+                $('.loader').css({ "display": "none" })
             });
     }
-    function tryStatus () {
+
+    function tryStatus() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/status`,
@@ -143,40 +152,41 @@ $(document).ready(() => {
             .done((data) => {
                 console.log(data);
                 timer = null;
-		if (data.status <= 0) {
-			$("#network-connect-btn").removeClass("disabled");
-			$("#network-connect-btn").text("Connect");
-		} else if (data.status == 6) {
-			$("#network-connect-btn").text("Connected");
-			timer = setTimeout(storeLastTried, 1000);
-		} else {
-		    switch(data.status) {
-			case 1:
-				$("#network-connect-btn").text("Preparing");
-			break;
-			case 2:
-				$("#network-connect-btn").text("Scanning");
-			break;
-			case 3:
-				$("#network-connect-btn").text("Connecting");
-			break;
-			case 4:
-				$("#network-connect-btn").text("Retrieving IP");
-			break;
-			case 5:
-				$("#network-connect-btn").text("Checking Internet");
-			break;
-			default:
-			break;
-		    }
-		    timer = setTimeout(tryStatus, 1000);
-		}
+                if (data.status <= 0) {
+                    $("#network-connect-btn").removeClass("disabled");
+                    $("#network-connect-btn").text("Connect");
+                } else if (data.status == 6) {
+                    $("#network-connect-btn").text("Connected");
+                    timer = setTimeout(storeLastTried, 1000);
+                } else {
+                    switch (data.status) {
+                        case 1:
+                            $("#network-connect-btn").text("Preparing");
+                            break;
+                        case 2:
+                            $("#network-connect-btn").text("Scanning");
+                            break;
+                        case 3:
+                            $("#network-connect-btn").text("Connecting");
+                            break;
+                        case 4:
+                            $("#network-connect-btn").text("Retrieving IP");
+                            break;
+                        case 5:
+                            $("#network-connect-btn").text("Checking Internet");
+                            break;
+                        default:
+                            break;
+                    }
+                    timer = setTimeout(tryStatus, 1000);
+                }
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 timer = null;
-		timer = setTimeout(tryStatus, 1000);
+                timer = setTimeout(tryStatus, 1000);
             });
     }
+
     function tryAccessPoint() {
         $.ajax({
             type: 'POST',
@@ -194,22 +204,32 @@ $(document).ready(() => {
                 console.log("Network success");
                 console.log(data);
                 //location.assign('./registration.html')
-		if (data.success) {
-			timer = setTimeout(tryStatus, 1000);
-			$("#network-connect-btn").addClass("disabled");
-			$("#network-connect-btn").text("Preparing");
-		}
+                if (data.success) {
+                    timer = setTimeout(tryStatus, 1000);
+                    $("#network-connect-btn").addClass("disabled");
+                    $("#network-connect-btn").text("Preparing");
+                } else {
+                    $('#error').val('Password is incorrect')
+                    $('input').val('');
+                    $('.loader').css({ "display": "none" })
+                    console.log("Password is incorrect");
+                }
             })
             .fail((jqXHR, textStatus, errorThrown) => {
-                console.log("Login failed");
+                $('#error').val('Password is incorrect')
+                $('input').val('');
+                $('.loader').css({ "display": "none" })
+                console.log("Password is incorrect");
             });
     }
 
     function regReset() {
-	$("#register-btn").removeClass("disabled");
-	$("#register-btn").text("Register");
+        $("#register-btn").removeClass("disabled");
+        $("#register-btn").text("Register");
+        $('.loader').css({ "display": "none" })
     }
-    function regStatus () {
+
+    function regStatus() {
         $.ajax({
             type: 'POST',
             url: `${baseUrl}/status`,
@@ -222,39 +242,48 @@ $(document).ready(() => {
             .done((data) => {
                 console.log(data);
                 timer = null;
-		if (data.status <= 0) {
-			regReset()
-		} else if (data.status == 6) {
-			$("#network-connect-btn").text("Registered");
-			timer = setTimeout(function(){location.assign("./success.html");}, 1000);
-		} else if (data.status == 5) {
-			$("#network-connect-btn").text("Wrong registration code");
-			//timer = setTimeout(function(){regReset();}, 1000);
-		} else if (data.status == 4) {
-			$("#network-connect-btn").text("Already registered");
-			//timer = setTimeout(function(){regReset();}, 1000);
-		} else {
-		    switch(data.status) {
-			case 1:
-				$("#network-connect-btn").text("Connecting");
-			break;
-			case 2:
-				$("#network-connect-btn").text("Sending request");
-			break;
-			case 3:
-				$("#network-connect-btn").text("Receiving response");
-			break;
-			default:
-			break;
-		    }
-		    timer = setTimeout(regStatus, 1000);
-		}
+                if (data.status <= 0) {
+                    regReset()
+                } else if (data.status == 6) {
+                    $("#network-connect-btn").text("Registered");
+                    timer = setTimeout(function () {
+                        location.assign("./success.html");
+                        $('.loader').css({ "display": "none" })
+
+                    }, 1000);
+                } else if (data.status == 5) {
+                    $("#network-connect-btn").text("Wrong registration code");
+                    $('.loader').css({ "display": "none" })
+
+                    //timer = setTimeout(function(){regReset();}, 1000);
+                } else if (data.status == 4) {
+                    $("#network-connect-btn").text("Already registered");
+                    $('.loader').css({ "display": "none" })
+
+                    //timer = setTimeout(function(){regReset();}, 1000);
+                } else {
+                    switch (data.status) {
+                        case 1:
+                            $("#network-connect-btn").text("Connecting");
+                            break;
+                        case 2:
+                            $("#network-connect-btn").text("Sending request");
+                            break;
+                        case 3:
+                            $("#network-connect-btn").text("Receiving response");
+                            break;
+                        default:
+                            break;
+                    }
+                    timer = setTimeout(regStatus, 1000);
+                }
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 timer = null;
-		timer = setTimeout(regStatus, 1000);
+                timer = setTimeout(regStatus, 1000);
             });
     }
+
     function registerDevice() {
         $.ajax({
             type: 'POST',
@@ -267,21 +296,23 @@ $(document).ready(() => {
         })
             .done((data) => {
                 if (!data.success) {
-			$('#error').val('Incorrect code')
-			$('input:password').val('');
-			console.log("Registration failed");
-		} else {
-			console.log("Registration started");
-			console.log(data);
-			//location.assign('./success.html')
-			$("#register-btn").addClass("disabled");
-			$("#register-btn").text("Preparing");
-			timer = setTimeout(regStatus, 1000);
-		}
+                    $('#error').val('Code entered is incorrect')
+                    $('input:password').val('');
+                    console.log("Registration failed");
+                    $('.loader').css({ "display": "none" })
+                } else {
+                    console.log("Registration started");
+                    console.log(data);
+                    //location.assign('./success.html')
+                    $("#register-btn").addClass("disabled");
+                    $("#register-btn").text("Preparing");
+                    timer = setTimeout(regStatus, 1000);
+                }
             })
             .fail((jqXHR, textStatus, errorThrown) => {
-                $('#error').val('Incorrect code')
+                $('#error').val('Code entered is incorrect')
                 $('input:password').val('');
+                $('.loader').css({ "display": "none" })
                 console.log("Registration failed");
             });
     }
@@ -301,9 +332,11 @@ $(document).ready(() => {
                 console.log("Logout success");
                 console.log(data);
                 location.replace('./login.html')
+                $('.loader').css({ "display": "none" })
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 console.log("Logout failed");
+                $('.loader').css({ "display": "none" })
             });
     }
 
@@ -314,22 +347,63 @@ $(document).ready(() => {
 
         //change screen to password.html
         location.assign('./password.html')
-	return false;
+        return false;
     }
+
+    function getMobileOperatingSystem() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+            return "Windows Phone";
+        }
+
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+
+        // iOS detection from: http://stackoverflow.com/a/9039885/177710
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+
+        return "unknown";
+    }
+
     window.on_network_click = on_network_click;
 
     //events
     //screen 1
     $("#login-btn").click(() => {
-        login()
-        login()
+        setTimeout(() => {
+            login()
+            login()
+        }, 1000);
+        $('.loader').css({ "display": "initial" })
     });
 
     //screen 2
     $("#scan-btn").click(() => {
-	if (!timer)
-		scan()
+        if (!timer) {
+            $('.loader').css({ "display": "initial" })
+            scan()
+        }
     });
+
+    if ($("#network-password").length > 0) {
+        // password page
+        $("#password-cover").text(sessionStorage.getItem('ssid'));
+        if (sessionStorage.getItem('authtype') == 0) {
+            $("#network-password").attr('disabled', 'disabled');
+            $("#network-password").removeAttr('minlength');
+            $("#network-password").removeAttr('required');
+        } else {
+            $("#network-password").removeAttr('disabled');
+            $("#network-password").attr('minlength', '8');
+            $("#network-password").attr('required', '');
+        }
+        $("#network-password").val('');
+    }
 
     //screen 3
     //getting network id
@@ -339,14 +413,22 @@ $(document).ready(() => {
     })
 
     $("#section-2").submit((event) => {
+        $('.loader').css({ "display": "initial" })
         tryAccessPoint()
-	event.preventDefault();
+        event.preventDefault();
     });
 
     $("#network-connect-btn").click(() => {
-	    if (!$("#network-connect-btn").hasClass('disabled'))
-		$("#section-2").submit();
+        if (!$("#network-connect-btn").hasClass('disabled'))
+            $('.loader').css({ "display": "initial" })
+        $("#section-2").submit();
     });
+
+    if ($("#networks").length > 0) {
+        //networks page
+        $('.loader').css({ "display": "initial" })
+        getScanResults();
+    }
 
     //screen 4
     $('#rc-code').on('keyup', (e) => {
@@ -354,31 +436,34 @@ $(document).ready(() => {
     })
 
     $("#register-btn").click(() => {
-	    if (!timer)
-		registerDevice()
+        if (!timer) {
+            setTimeout(() => {
+                registerDevice()
+            }, 1000);
+            $('.loader').css({ "display": "initial" })
+        }
     });
 
     //screen 5
     $("#logout-btn").click(() => {
-        logout()
+        setTimeout(() => {
+            logout()
+        }, 1000);
+        $('.loader').css({ "display": "initial" })
     });
 
-    if ($("#networks").length > 0) {
-        //networks page
-        getScanResults();
-    }
-    if ($("#network-password").length > 0) {
-        // password page
-	$("#password-cover").text(sessionStorage.getItem('ssid'));
-	if (sessionStorage.getItem('authtype') == 0) {
-		$("#network-password").attr('disabled', 'disabled');
-		$("#network-password").removeAttr('minlength');
-		$("#network-password").removeAttr('required');
-	} else {
-		$("#network-password").removeAttr('disabled');
-		$("#network-password").attr('minlength', '8');
-		$("#network-password").attr('required', '');
-	}
-	$("#network-password").val('');
-    }
+    $('#app-store-btn').click(() => {
+        var device = getMobileOperatingSystem();
+
+        switch (device) {
+            case 'Android':
+                location.assign('https://play.google.com/store/apps/details?id=com.phonegap.growee&hl=en');
+                break;
+            case 'iOS':
+                location.assign('https://apps.apple.com/us/app/growee/id1387533617');
+                break;
+            default:
+                return;
+        }
+    });
 });
