@@ -1,5 +1,5 @@
 body section #section-3 a {
-  width: 80%;
+  width: 100%;
   padding: 0.75em 0;
   text-align: center;
   border-radius: 1.375em;
@@ -7,11 +7,6 @@ body section #section-3 a {
   color: #61e48b;
   font-size: 1em;
   font-weight: 600;
-}
-
-body section #section-3 a.disabled {
-  color: #e7e7e7;
-  border-color: #e7e7e7;
 }
 
 body nav {
@@ -48,6 +43,10 @@ body footer div {
   padding: 2px 0;
 }
 
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 a {
   text-decoration: none;
   outline: none;
@@ -59,6 +58,28 @@ input {
   border: none;
 }
 
+#layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#loader-message {
+  left: 15%;
+  top: 85%;
+  position: absolute;
+}
+
+@media (min-width: 360px) {
+  #loader-message {
+    left: 20% !important;
+  }
+}
+
 @media (min-width: 415px) {
   section #section-1 .cover {
     font-size: 3.5em !important;
@@ -68,15 +89,25 @@ input {
   footer div {
     padding: 4px 0 !important;
   }
-}
-
-@media (min-width: 769px) {
-  section #section-1 .cover {
-    font-size: 5em !important;
+  #loader-message {
+    left: 22% !important;
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 768px) {
+  section #section-1 .cover {
+    font-size: 5em !important;
+  }
+  .loader {
+    left: 46% !important;
+  }
+  #loader-message {
+    left: 26% !important;
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
   nav {
     -webkit-box-pack: start !important;
         -ms-flex-pack: start !important;
@@ -88,11 +119,35 @@ input {
   }
   section,
   footer {
-    width: 40% !important;
+    width: 70% !important;
     margin: 0 auto !important;
   }
   section #section-1 .cover {
     font-size: 2.5em !important;
+  }
+  .loader {
+    left: 48% !important;
+  }
+  #loader-message {
+    left: 29% !important;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1224px) {
+  section,
+  footer {
+    width: 50% !important;
+    margin: 0 auto !important;
+  }
+  #loader-message {
+    left: 35% !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  #loader-message {
+    left: 37% !important;
   }
 }
 

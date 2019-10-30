@@ -12,45 +12,48 @@
 </head>
 
 <body>
-    <nav>
-        <img src="./img/logo.png" alt="main-logo">
-    </nav>
-    <section>
-        <div id="section-1">
-            <div class="cover" id="registration-cover">
-                <!-- dynamic -->
-                Enter Registration Code
+    <div id="layout">
+        <nav>
+            <img src="./img/logo.png" alt="main-logo">
+        </nav>
+        <section>
+            <div id="section-1">
+                <div class="cover" id="registration-cover">
+                    <!-- dynamic -->
+                    Enter Registration Code
+                </div>
+                <div id="sub-cover">
+                    Your device's registration code is on the back side of the user manual
+                </div>
             </div>
-            <div id="sub-cover">
-                Your device's registration code is on the back side of the user manual
+            <div id="error"></div>
+            <div id="section-2">
+                <!-- error if password incorrect -->
+                <input required id="rc-code" type="text" name="network-pass" placeholder="Registration Code">
             </div>
-        </div>
-        <div id="section-2">
-            <!-- error if password incorrect -->
-            <p id="error"></p>
-            <input required id="rc-code" type="text" name="network-pass" placeholder="Registration Code">
-        </div>
-        <div id="section-3">
-            <a class="connect-btn" id="register-btn" href="#">Register</a>
-            <div class="loader">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div id="bar1"></div>
-        <div id="bar2"></div>
-        <div id="bar3"></div>
-        <div id="bar4" class="finish"></div>
-    </footer>
+            <div id="section-3">
+                <a class="connect-btn" id="register-btn" href="#">Register</a>
 
+            </div>
+        </section>
+        <footer>
+            <div id="bar1"></div>
+            <div id="bar2"></div>
+            <div id="bar3"></div>
+            <div id="bar4" class="finish"></div>
+        </footer>
+    </div>
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="loader-message">This may take a few moments...</div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./js/main.js"></script>
 </body>

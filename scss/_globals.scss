@@ -1,3 +1,7 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 a {
     text-decoration: none;
     outline: none;
@@ -7,4 +11,15 @@ a {
 input {
     outline: none;
     border: none;
+}
+
+#layout {
+    display: flex;
+    flex-direction: column;
+}
+
+#loader-message {
+    left: 15%;
+    top: 85%;
+    position: absolute;
 }

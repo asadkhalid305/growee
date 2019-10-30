@@ -1,6 +1,12 @@
 //define mixins
 @import "mixins";
 
+@include for-phone($min: 360px) {
+    #loader-message {
+        left: 20% !important;
+    }
+}
+
 @include for-tablet($min: 415px) {
     section {
         #section-1 {
@@ -16,9 +22,13 @@
             padding: 4px 0 !important;
         }
     }
+
+    #loader-message {
+        left: 22% !important;
+    }
 }
 
-@include for-tablet($min: 769px) {
+@include for-tablet($min: 768px) {
     section {
         #section-1 {
             .cover {
@@ -26,9 +36,18 @@
             }
         }
     }
+
+    .loader {
+        left: 46% !important;
+    }
+
+    #loader-message {
+        left: 26% !important;
+        font-size: 26px;
+    }
 }
 
-@include for-desktop($min: 1025px) {
+@include for-desktop($min: 1024px) {
     nav {
         justify-content: start !important;
 
@@ -40,7 +59,7 @@
 
     section,
     footer {
-        @include wrapper($width: 40%);
+        @include wrapper($width: 70%);
     }
 
     section {
@@ -49,5 +68,33 @@
                 font-size: 2.5em !important;
             }
         }
+    }
+
+    .loader {
+        left: 48% !important;
+    }
+
+    #loader-message {
+        left: 29% !important;
+        font-size: 30px;
+    }
+}
+
+
+@include for-desktop($min: 1224px) {
+
+    section,
+    footer {
+        @include wrapper($width: 50%);
+    }
+
+    #loader-message {
+        left: 35% !important;
+    }
+}
+
+@include for-desktop($min: 1400px) {
+    #loader-message {
+        left: 37% !important;
     }
 }
