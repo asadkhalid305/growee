@@ -20,6 +20,11 @@ body section #section-3 #logout-btn {
   font-weight: 600;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
 }
