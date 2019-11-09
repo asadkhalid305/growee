@@ -3,7 +3,7 @@ $(document).ready(() => {
   // var baseUrl = 'http://localhost:3010'
   var baseUrl = "http://growee.local";
   var timer;
-  // hideLoader();
+  hideLoader();
 
   //functions
   function getScanResults() {
@@ -233,16 +233,14 @@ $(document).ready(() => {
           timer = setTimeout(tryStatus, 1000);
           $("#network-connect-btn").text("Preparing");
         } else {
-          $("#error").text("Password is incorrect");
-          $("input").val("");
+          showError("Password is incorrect");
           hideLoader();
           console.log("Password is incorrect");
           $("#network-connect-btn").removeClass("disabled");
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#error").text("Password is incorrect");
-        $("input").val("");
+        showError('Password is incorrect')
         hideLoader();
         console.log("Password is incorrect");
         $("#network-connect-btn").removeClass("disabled");
@@ -331,8 +329,7 @@ $(document).ready(() => {
     })
       .done(data => {
         if (!data.success) {
-          $("#error").text("Code entered is incorrect");
-          $("input:password").val("");
+          showError("Code entered is incorrect")
           console.log("Registration failed");
           regReset();
           hideLoader();
@@ -345,8 +342,7 @@ $(document).ready(() => {
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#error").text("Code entered is incorrect");
-        $("input:password").val("");
+        showError("Code entered is incorrect")
         regReset();
         hideLoader();
         console.log("Registration failed");
@@ -427,17 +423,29 @@ $(document).ready(() => {
     $("#loader-parent").css({ "display": "initial", "z-index": "9999" });
     $("#loader-message").css({ "display": "initial" });
     $("#layout").css({ "opacity": "0.2" });
-    $('#error').css({
-      "color": "red",
-      "text-align": "center",
-      "padding-bottom": "12px"
-    })
   }
 
   function hideLoader() {
     $("#loader-parent").css({ "display": "none" });
     $("#loader-message").css({ "display": "none" });
     $("#layout").css({ "opacity": "1" });
+  }
+
+  function showError(msg) {
+    $("#error").text(`${msg}`);
+    $("#error").css({
+      "color": "red",
+      "text-align": "center",
+      "padding-bottom": "12px"
+    })
+    $(".input-error").css({ "border-color": "red" })
+    $("input").val("");
+  }
+  function hideError() {
+    $("#error").text("");
+    $("#error").css({
+      "padding-bottom": "0px"
+    })
   }
 
   window.on_network_click = on_network_click;
@@ -544,5 +552,10 @@ $(document).ready(() => {
         hideLoader()
         locateToMagazine();
       });
+  });
+
+  $("input").keypress(function () {
+    $(".input-error").css({ "border-color": "initial" })
+    hideError()
   });
 });
