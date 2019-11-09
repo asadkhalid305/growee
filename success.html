@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./favicon.png" />
-    <link rel="stylesheet" href="./css/login.css">
+    <!-- <link rel="stylesheet" href="./css/login.css"> -->
     <link rel="stylesheet" href="./css/success.css">
     <link rel="stylesheet" href="./css/loader.css">
     <title>Success</title>
@@ -22,8 +22,8 @@
                 <div class="cover" id="success-cover">
                     Success!
                 </div>
-                <div class="cover-logo">
-                    <img src="./img/color_growee_illustration.png" alt="cover-logo">
+                <div class="cover-logo" id="success-cover-logo">
+                    <img src="./img/color_growee_illustration.png" alt="success-cover-logo">
                     <img src="./img/shadow.png" alt="shadow">
                 </div>
             </div>
@@ -37,15 +37,17 @@
             </div>
         </section>
         </ id="layout">
-        <div class="loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div id="loader-parent">
+            <div class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
         <div id="loader-message">This may take a few moments...</div>
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>

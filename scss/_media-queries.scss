@@ -1,49 +1,63 @@
 //define mixins
 @import "mixins";
 
-@include for-phone($min: 360px) {
-    #loader-message {
-        left: 20% !important;
-    }
-}
-
-@include for-tablet($min: 415px) {
-    section {
-        #section-1 {
-            .cover {
-                font-size: 3.5em !important;
-                flex-basis: 18vh !important;
-            }
+@include for-tablet($min: 720px) {
+    nav {
+        img {
+            width: 25% !important;
         }
     }
 
+    section,
     footer {
-        div {
-            padding: 4px 0 !important;
-        }
+        @include wrapper($width: 80%);
     }
 
-    #loader-message {
-        left: 22% !important;
-    }
-}
-
-@include for-tablet($min: 768px) {
     section {
         #section-1 {
-            .cover {
-                font-size: 5em !important;
+            #login-cover {
+                font-size: 6.9vw !important;
+            }
+
+            #login-text {
+                font-size: 4.67vw !important;
+            }
+
+            .cover.logo {
+                img {
+                    width: 30% !important;
+                }
+            }
+
+            #network-cover {
+                font-size: 7vw !important;
+            }
+
+            #password-cover,
+            #registration-cover {
+                font-size: 5.8vw !important;
+            }
+        }
+
+        #section-2 {
+            #networks {
+                .network {
+                    a {
+                        font-size: 1.4em;
+                    }
+                }
+            }
+        }
+
+        #section-3 {
+            #scan-btn {
+                font-size: 1.8em !important;
             }
         }
     }
 
-    .loader {
-        left: 46% !important;
-    }
-
-    #loader-message {
-        left: 26% !important;
-        font-size: 26px;
+    #loader-parent {
+        right: 7vw;
     }
 }
 
@@ -59,24 +73,37 @@
 
     section,
     footer {
-        @include wrapper($width: 70%);
+        @include wrapper($width: 60%);
     }
 
     section {
         #section-1 {
-            .cover {
-                font-size: 2.5em !important;
+            #login-cover {
+                font-size: 5.1vw !important;
+            }
+
+            #login-text {
+                font-size: 3.5vw !important;
+            }
+
+            #network-cover {
+                font-size: 5vw !important;
+            }
+
+            #password-cover,
+            #registration-cover {
+                font-size: 4.3vw !important;
             }
         }
+
     }
 
-    .loader {
-        left: 48% !important;
+    #loader-parent {
+        right: 6.5vw;
     }
 
     #loader-message {
-        left: 29% !important;
-        font-size: 30px;
+        font-size: 2.5vw;
     }
 }
 
@@ -88,13 +115,26 @@
         @include wrapper($width: 50%);
     }
 
-    #loader-message {
-        left: 35% !important;
-    }
-}
+    section {
+        #section-1 {
+            #login-cover {
+                font-size: 4.3vw !important;
+            }
 
-@include for-desktop($min: 1400px) {
-    #loader-message {
-        left: 37% !important;
+            #login-text {
+                font-size: 2.9vw !important;
+            }
+
+            #password-cover,
+            #registration-cover {
+                font-size: 3.5vw !important;
+            }
+
+        }
+
+    }
+
+    #loader-parent {
+        right: 6.2vw;
     }
 }

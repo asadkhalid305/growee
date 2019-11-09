@@ -1,4 +1,15 @@
-body section #section-3 a {
+body section #section-3 .connect-btn {
+  width: 100%;
+  padding: 0.75em 0;
+  text-align: center;
+  border-radius: 1.375em;
+  background-color: #61e48b;
+  color: white;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+body section #section-3 #back-btn {
   width: 100%;
   padding: 0.75em 0;
   text-align: center;
@@ -216,8 +227,8 @@ body section {
 }
 
 body section #section-1 {
-  -ms-flex-preferred-size: 20vh;
-      flex-basis: 20vh;
+  -ms-flex-preferred-size: 35vh;
+      flex-basis: 35vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -228,72 +239,21 @@ body section #section-1 {
   padding-top: 5vh;
 }
 
-body section #section-1 #network-cover {
-  -ms-flex-preferred-size: 16vh;
-      flex-basis: 16vh;
+body section #section-1 #registration-cover {
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
   text-align: center;
-  font-size: 8vw;
+  font-size: 7vw;
   color: #9a9a9a;
 }
 
-body section #section-1 #bar {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #e7e7e7;
-  width: 20%;
-  padding: 2px 0;
-  border-radius: 25px;
+body section #section-1 #sub-cover {
+  text-align: center;
+  font-size: 1em;
+  color: #9a9a9a;
 }
 
 body section #section-2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 32vh;
-      flex-basis: 32vh;
-}
-
-body section #section-2 #networks {
-  -ms-flex-preferred-size: 28vh;
-      flex-basis: 28vh;
-  overflow: scroll;
-}
-
-body section #section-2 #networks .network {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 10px 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-body section #section-2 #networks .network a {
-  -webkit-box-flex: 0.8;
-      -ms-flex: 0.8;
-          flex: 0.8;
-}
-
-body section #section-2 #networks .network img {
-  height: 16px;
-  margin: auto 0;
-}
-
-body section #section-2 #networks .network .wifi-signal {
-  margin-right: 12px !important;
-}
-
-body section #section-3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,13 +262,43 @@ body section #section-3 {
           justify-content: center;
 }
 
+body section #section-2 input {
+  border: 2px solid #9a9a9a;
+  border-radius: 10px;
+  padding: 12px 8px;
+  width: 100%;
+}
+
+body section #section-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 20vh;
+      flex-basis: 20vh;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 body section #section-3 a {
-  width: 50% !important;
-  font-size: 1.5em !important;
+  margin: 0 auto;
+}
+
+body section #section-3 .connect-btn {
+  margin-bottom: 2vh;
 }
 
 body footer #bar1,
-body footer #bar2 {
+body footer #bar2,
+body footer #bar3 {
   background-color: #61e48b !important;
 }
-/*# sourceMappingURL=network.css.map */
+
+body footer .finish {
+  background-color: #61e48b !important;
+}
+/*# sourceMappingURL=registration.css.map */

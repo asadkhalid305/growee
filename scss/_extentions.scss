@@ -10,7 +10,7 @@
     border-radius: 1.375em;
     background-color: #61e48b;
     color: white;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 600;
 }
 
@@ -21,7 +21,7 @@
     border-radius: 1.375em;
     border: 2px solid #61e48b;
     color: #61e48b;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 600;
 }
 
@@ -32,14 +32,14 @@
         justify-content: center;
 
         img {
-            width: 40%;
+            width: 35%;
             margin: auto;
         }
     }
 }
 
 %footer {
-    flex-basis: 20vh;
+    flex-basis: 10vh;
     display: flex;
     justify-content: center;
 
@@ -48,6 +48,15 @@
         margin: auto;
         width: 25%;
         padding: 2px 0;
-        // border-radius: 25px;
+    }
+
+    #bar1 {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    #bar4 {
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
     }
 }

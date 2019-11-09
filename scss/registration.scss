@@ -28,11 +28,10 @@ body {
         @include flex($direction: column);
 
         #section-1 {
-            flex-basis: 28vh;
+            flex-basis: 35vh;
             @include flex($direction: column);
             padding-top: 5vh;
 
-            #password-cover,
             #registration-cover {
                 flex-basis: 20vh;
                 text-align: center;
@@ -63,7 +62,7 @@ body {
 
         #section-3 {
             @include flex($direction: column);
-            flex-basis: 26vh;
+            flex-basis: 20vh;
             justify-content: flex-end;
 
             a {

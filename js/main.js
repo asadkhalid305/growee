@@ -3,7 +3,7 @@ $(document).ready(() => {
   // var baseUrl = 'http://localhost:3010'
   var baseUrl = "http://growee.local";
   var timer;
-  hideLoader();
+  // hideLoader();
 
   //functions
   function getScanResults() {
@@ -30,8 +30,8 @@ $(document).ready(() => {
             //generating dynamic id
             $item = $(
               '<div id="' +
-                i +
-                '" class="network" onclick="return on_network_click(this);"></div>'
+              i +
+              '" class="network" onclick="return on_network_click(this);"></div>'
             );
             // check and reflect rssi
             if (data.items[i].rssi < -80) {
@@ -274,7 +274,7 @@ $(document).ready(() => {
           regReset();
         } else if (data.status == 6) {
           $("#register-btn").text("Registered");
-          timer = setTimeout(function() {
+          timer = setTimeout(function () {
             location.assign("./success.html");
             hideLoader();
           }, 1000);
@@ -282,14 +282,14 @@ $(document).ready(() => {
           $("#register-btn").text("Wrong registration code");
           hideLoader();
 
-          timer = setTimeout(function() {
+          timer = setTimeout(function () {
             regReset();
           }, 1000);
         } else if (data.status == 4) {
           $("#register-btn").text("Already registered");
           hideLoader();
 
-          timer = setTimeout(function() {
+          timer = setTimeout(function () {
             regReset();
           }, 1000);
         } else {
@@ -409,7 +409,7 @@ $(document).ready(() => {
   function locateToMagazine() {
     var device = getMobileOperatingSystem();
 
-    $(".loader").css({ display: "none" });
+    hideLoader()
     switch (device) {
       case "Android":
         //location.assign('https://play.google.com/store/apps/details?id=com.phonegap.growee&hl=en');
@@ -424,15 +424,20 @@ $(document).ready(() => {
   }
 
   function showLoader() {
-    $(".loader").css({ display: "initial" });
-    $("#loader-message").css({ display: "initial" });
-    $("#layout").css({ opacity: "0.2" });
+    $("#loader-parent").css({ "display": "initial", "z-index": "9999" });
+    $("#loader-message").css({ "display": "initial" });
+    $("#layout").css({ "opacity": "0.2" });
+    $('#error').css({
+      "color": "red",
+      "text-align": "center",
+      "padding-bottom": "12px"
+    })
   }
 
   function hideLoader() {
-    $(".loader").css({ display: "none" });
-    $("#loader-message").css({ display: "none" });
-    $("#layout").css({ opacity: "1" });
+    $("#loader-parent").css({ "display": "none" });
+    $("#loader-message").css({ "display": "none" });
+    $("#layout").css({ "opacity": "1" });
   }
 
   window.on_network_click = on_network_click;
@@ -521,7 +526,7 @@ $(document).ready(() => {
   $("#app-store-btn").click(() => {
     if (timer) return;
 
-    $(".loader").css({ display: "initial" });
+    showLoader()
     $.ajax({
       type: "POST",
       url: `${baseUrl}/wifi`,
@@ -536,7 +541,7 @@ $(document).ready(() => {
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log("Disconnect failed");
-        $(".loader").css({ display: "none" });
+        hideLoader()
         locateToMagazine();
       });
   });

@@ -24,7 +24,16 @@ input {
 }
 
 #loader-message {
-    left: 15%;
-    top: 85%;
-    position: absolute;
+    position: fixed;
+    text-align: center;
+    width: inherit;
+    top: 88vh;
+    font-size: 3vw;
+}
+
+#loader-parent {
+    position: fixed;
+    width: inherit;
+    right: 9vw;
+    top: 50vh;
 }

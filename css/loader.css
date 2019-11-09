@@ -1,13 +1,7 @@
 .loader {
-    left: 42%;
-    display: block;
-    text-align: center;
-    position: absolute;
     margin: 0 auto;
-    padding-top: 32px;
     width: 32px;
     height: 32px;
-    top: 50%;
 }
 
 .loader div {

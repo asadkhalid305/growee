@@ -24,39 +24,42 @@ body {
     @extend %nav-bar;
 
     section {
-        flex-basis: 65vh;
+        flex-basis: 75vh;
         @include flex($direction: column);
 
         #section-1 {
-            flex-basis: 40vh;
+            flex-basis: 56vh;
             @include flex($direction: column);
             padding-top: 5vh;
 
-            .cover {
-                flex-basis: 20vh;
+            #login-cover {
+                flex-basis: 18vh;
                 text-align: center;
-                font-size: 2em;
+                font-size: 8.6vw;
                 color: #9a9a9a;
             }
 
-            .cover-logo {
+            #login-cover-logo {
                 text-align: center;
+                flex-basis: 22vh;
 
                 img {
-                    width: 50%;
+                    width: 35%;
                 }
+            }
+
+            #login-text {
+                text-align: center;
+                // font-size: 1.14em;
+                font-size: 5.84vw;
+                // padding-bottom: 3.625em;
+                flex-basis: 16vh;
             }
         }
 
         #section-2 {
-            flex-basis: 20vh;
-            @include flex($direction: column, $justify: flex-end);
-
-            #login-text {
-                text-align: center;
-                font-size: 1em;
-                padding-bottom: 2em;
-            }
+            flex-basis: 14vh;
+            @include flex($direction: column);
 
             #login-btn {
                 @include flex($justify: center);
@@ -80,50 +83,56 @@ body {
 
 @include for-tablet($min: 416px) {
     section {
-        #section-2 {
-            #login-text {
-                font-size: 2em !important;
-            }
+        // #section-1 {
+        //     #login-text {
+        //         // font-size: 1.5em !important;
+        //     }
+        // }
 
-            #login-btn {
-                a {
-                    font-size: 2em !important;
-                }
-            }
-        }
+        // #section-2 {
+        //     #login-btn {
+        //         a {
+        //             font-size: 1.2em !important;
+        //         }
+        //     }
+        // }
     }
 }
 
 @include for-tablet($min: 769px) {
     section {
-        #section-2 {
-            #login-text {
-                font-size: 2.5em !important;
-            }
+        // #section-1 {
+        //     #login-text {
+        //         // font-size: 2.5em !important;
+        //     }
+        // }
 
-            #login-btn {
-                a {
-                    font-size: 2.5em !important;
-                }
-            }
-        }
+        // #section-2 {
+        //     #login-btn {
+        //         a {
+        //             font-size: 2.5em !important;
+        //         }
+        //     }
+        // }
     }
 }
 
 @include for-desktop($min: 1025px) {
-    section {
-        #section-2 {
-            #login-text {
-                font-size: 1.5em !important;
-            }
+    // section {
+    //     #section-1 {
+    //         #login-text {
+    //             // font-size: 1.5em !important;
+    //         }
+    //     }
 
-            #login-btn {
-                a {
-                    font-size: 1.2em !important;
-                    width: 60% !important;
-                    padding: 0.6em 0;
-                }
-            }
-        }
-    }
+    //     #section-2 {
+    //         #login-btn {
+    //             a {
+    //                 font-size: 1.2em !important;
+    //                 width: 60% !important;
+    //                 padding: 0.6em 0;
+    //             }
+    //         }
+    //     }
+    // }
 }

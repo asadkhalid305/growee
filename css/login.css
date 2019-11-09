@@ -5,7 +5,7 @@ body section #section-2 #login-btn a {
   border-radius: 1.375em;
   background-color: #61e48b;
   color: white;
-  font-size: 1em;
+  font-size: 1.25em;
   font-weight: 600;
 }
 
@@ -21,13 +21,13 @@ body nav {
 }
 
 body nav img {
-  width: 40%;
+  width: 35%;
   margin: auto;
 }
 
 body footer {
-  -ms-flex-preferred-size: 20vh;
-      flex-basis: 20vh;
+  -ms-flex-preferred-size: 10vh;
+      flex-basis: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,6 +41,16 @@ body footer div {
   margin: auto;
   width: 25%;
   padding: 2px 0;
+}
+
+body footer #bar1 {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+body footer #bar4 {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 @font-face {
@@ -74,41 +84,53 @@ input {
 }
 
 #loader-message {
-  left: 15%;
-  top: 85%;
-  position: absolute;
+  position: fixed;
+  text-align: center;
+  width: inherit;
+  top: 88vh;
+  font-size: 3vw;
 }
 
-@media (min-width: 360px) {
-  #loader-message {
-    left: 20% !important;
-  }
+#loader-parent {
+  position: fixed;
+  width: inherit;
+  right: 9vw;
+  top: 50vh;
 }
 
-@media (min-width: 415px) {
-  section #section-1 .cover {
-    font-size: 3.5em !important;
-    -ms-flex-preferred-size: 18vh !important;
-        flex-basis: 18vh !important;
+@media (min-width: 720px) {
+  nav img {
+    width: 25% !important;
   }
-  footer div {
-    padding: 4px 0 !important;
+  section,
+  footer {
+    width: 80% !important;
+    margin: 0 auto !important;
   }
-  #loader-message {
-    left: 22% !important;
+  section #section-1 #login-cover {
+    font-size: 6.9vw !important;
   }
-}
-
-@media (min-width: 768px) {
-  section #section-1 .cover {
-    font-size: 5em !important;
+  section #section-1 #login-text {
+    font-size: 4.67vw !important;
   }
-  .loader {
-    left: 46% !important;
+  section #section-1 .cover.logo img {
+    width: 30% !important;
   }
-  #loader-message {
-    left: 26% !important;
-    font-size: 26px;
+  section #section-1 #network-cover {
+    font-size: 7vw !important;
+  }
+  section #section-1 #password-cover,
+  section #section-1 #registration-cover {
+    font-size: 5.8vw !important;
+  }
+  section #section-2 #networks .network a {
+    font-size: 1.4em;
+  }
+  section #section-3 #scan-btn {
+    font-size: 1.8em !important;
+  }
+  #loader-parent {
+    right: 7vw;
   }
 }
 
@@ -124,18 +146,27 @@ input {
   }
   section,
   footer {
-    width: 70% !important;
+    width: 60% !important;
     margin: 0 auto !important;
   }
-  section #section-1 .cover {
-    font-size: 2.5em !important;
+  section #section-1 #login-cover {
+    font-size: 5.1vw !important;
   }
-  .loader {
-    left: 48% !important;
+  section #section-1 #login-text {
+    font-size: 3.5vw !important;
+  }
+  section #section-1 #network-cover {
+    font-size: 5vw !important;
+  }
+  section #section-1 #password-cover,
+  section #section-1 #registration-cover {
+    font-size: 4.3vw !important;
+  }
+  #loader-parent {
+    right: 6.5vw;
   }
   #loader-message {
-    left: 29% !important;
-    font-size: 30px;
+    font-size: 2.5vw;
   }
 }
 
@@ -145,14 +176,18 @@ input {
     width: 50% !important;
     margin: 0 auto !important;
   }
-  #loader-message {
-    left: 35% !important;
+  section #section-1 #login-cover {
+    font-size: 4.3vw !important;
   }
-}
-
-@media (min-width: 1400px) {
-  #loader-message {
-    left: 37% !important;
+  section #section-1 #login-text {
+    font-size: 2.9vw !important;
+  }
+  section #section-1 #password-cover,
+  section #section-1 #registration-cover {
+    font-size: 3.5vw !important;
+  }
+  #loader-parent {
+    right: 6.2vw;
   }
 }
 
@@ -169,8 +204,8 @@ body {
 }
 
 body section {
-  -ms-flex-preferred-size: 65vh;
-      flex-basis: 65vh;
+  -ms-flex-preferred-size: 75vh;
+      flex-basis: 75vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,8 +216,8 @@ body section {
 }
 
 body section #section-1 {
-  -ms-flex-preferred-size: 40vh;
-      flex-basis: 40vh;
+  -ms-flex-preferred-size: 56vh;
+      flex-basis: 56vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,25 +228,34 @@ body section #section-1 {
   padding-top: 5vh;
 }
 
-body section #section-1 .cover {
-  -ms-flex-preferred-size: 20vh;
-      flex-basis: 20vh;
+body section #section-1 #login-cover {
+  -ms-flex-preferred-size: 18vh;
+      flex-basis: 18vh;
   text-align: center;
-  font-size: 2em;
+  font-size: 8.6vw;
   color: #9a9a9a;
 }
 
-body section #section-1 .cover-logo {
+body section #section-1 #login-cover-logo {
   text-align: center;
+  -ms-flex-preferred-size: 22vh;
+      flex-basis: 22vh;
 }
 
-body section #section-1 .cover-logo img {
-  width: 50%;
+body section #section-1 #login-cover-logo img {
+  width: 35%;
+}
+
+body section #section-1 #login-text {
+  text-align: center;
+  font-size: 5.84vw;
+  -ms-flex-preferred-size: 16vh;
+      flex-basis: 16vh;
 }
 
 body section #section-2 {
-  -ms-flex-preferred-size: 20vh;
-      flex-basis: 20vh;
+  -ms-flex-preferred-size: 14vh;
+      flex-basis: 14vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,15 +263,6 @@ body section #section-2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-body section #section-2 #login-text {
-  text-align: center;
-  font-size: 1em;
-  padding-bottom: 2em;
 }
 
 body section #section-2 #login-btn {
@@ -241,34 +276,5 @@ body section #section-2 #login-btn {
 
 body footer #bar1 {
   background-color: #61e48b !important;
-}
-
-@media (min-width: 416px) {
-  section #section-2 #login-text {
-    font-size: 2em !important;
-  }
-  section #section-2 #login-btn a {
-    font-size: 2em !important;
-  }
-}
-
-@media (min-width: 769px) {
-  section #section-2 #login-text {
-    font-size: 2.5em !important;
-  }
-  section #section-2 #login-btn a {
-    font-size: 2.5em !important;
-  }
-}
-
-@media (min-width: 1025px) {
-  section #section-2 #login-text {
-    font-size: 1.5em !important;
-  }
-  section #section-2 #login-btn a {
-    font-size: 1.2em !important;
-    width: 60% !important;
-    padding: 0.6em 0;
-  }
 }
 /*# sourceMappingURL=login.css.map */
