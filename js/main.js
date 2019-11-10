@@ -2,7 +2,6 @@ $(document).ready(() => {
   // global variables
   // var baseUrl = 'http://localhost:3010'
   var baseUrl = "http://growee.local";
-  var timer;
   hideLoader();
 
   //functions
@@ -56,14 +55,14 @@ $(document).ready(() => {
             // check and reflect authtype
             if (data.items[i].authtype == 0) {
               // open AP
-              $item.append(
+              /*$item.append(
                 '<img class="wifi-signal" src="./img/layer7.png" alt="open">'
-              );
+              );*/
             } else if (data.items[i].authtype == 1) {
               // WEP security
-              $item.append(
+              /*$item.append(
                 '<img class="wifi-signal" src="./img/layer4_copy3.png" alt="badly-protected">'
-              );
+              );*/
             } else {
               // WPA/WPA2
               $item.append(
@@ -81,12 +80,10 @@ $(document).ready(() => {
         }
         $("#scan-btn").removeClass("disabled");
         hideLoader();
-        timer = null;
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log("Get scan results failed");
         $("#scan-btn").removeClass("disabled");
-        timer = null;
         hideLoader();
       });
   }
@@ -106,7 +103,7 @@ $(document).ready(() => {
         console.log(data);
         //location.assign('./networks.html')
         $("#scan-btn").addClass("disabled");
-        timer = setTimeout(getScanResults, 5000);
+        setTimeout(getScanResults, 5000);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log("Scan failed");
@@ -171,48 +168,42 @@ $(document).ready(() => {
     })
       .done(data => {
         console.log(data);
-        timer = null;
         if (data.status <= 0) {
-          $("#network-connect-btn").removeClass("disabled");
-          $("#network-connect-btn").text("Connect");
+	  showError("Password is incorrect");
           hideLoader();
         } else if (data.status == 6) {
-          $("#network-connect-btn").text("Connected");
-          timer = setTimeout(storeLastTried, 1000);
+          $("#loader-message").text("Connected! Storing data ...");
+          setTimeout(storeLastTried, 1000);
         } else {
           switch (data.status) {
             case 1:
-              $("#network-connect-btn").text("Preparing");
+              $("#loader-message").text("Preparing ...");
               break;
             case 2:
-              $("#network-connect-btn").text("Scanning");
+              $("#loader-message").text("Scanning ...");
               break;
             case 3:
-              $("#network-connect-btn").text("Connecting");
+              $("#loader-message").text("Connecting ...");
               break;
             case 4:
-              $("#network-connect-btn").text("Retrieving IP");
+              $("#loader-message").text("Retrieving IP ...");
               break;
             case 5:
-              $("#network-connect-btn").text("Checking Internet");
+              $("#loader-message").text("Checking Internet ...");
               break;
             default:
               break;
           }
-          timer = setTimeout(tryStatus, 1000);
-          hideLoader();
+          setTimeout(tryStatus, 1000);
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        timer = null;
-        timer = setTimeout(tryStatus, 1000);
+        setTimeout(tryStatus, 1000);
         hideLoader();
       });
   }
 
   function tryAccessPoint() {
-    $("#network-connect-btn").addClass("disabled");
-
     $.ajax({
       type: "POST",
       url: `${baseUrl}/wifi`,
@@ -230,32 +221,20 @@ $(document).ready(() => {
         console.log(data);
         //location.assign('./registration.html')
         if (data.success) {
-          timer = setTimeout(tryStatus, 1000);
-          $("#network-connect-btn").text("Preparing");
+          setTimeout(tryStatus, 1000);
+          $("#loader-message").text("Preparing ...");
         } else {
-          showError("Password is incorrect");
+          showError("Something goes wrong :(");
           hideLoader();
-          console.log("Password is incorrect");
-          $("#network-connect-btn").removeClass("disabled");
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        showError('Password is incorrect')
+        showError("Something goes wrong :(");
         hideLoader();
-        console.log("Password is incorrect");
-        $("#network-connect-btn").removeClass("disabled");
       });
   }
 
-  function regReset() {
-    $("#register-btn").removeClass("disabled");
-    $("#register-btn").text("Register");
-    hideLoader();
-    timer = null;
-  }
-
   function regStatus() {
-    showLoader();
     $.ajax({
       type: "POST",
       url: `${baseUrl}/status`,
@@ -267,56 +246,45 @@ $(document).ready(() => {
     })
       .done(data => {
         console.log(data);
-        timer = null;
         if (data.status <= 0) {
-          regReset();
+          hideLoader();
         } else if (data.status == 6) {
-          $("#register-btn").text("Registered");
-          timer = setTimeout(function () {
+          $("#loader-message").text("Registered!");
+          setTimeout(function() {
             location.assign("./success.html");
             hideLoader();
           }, 1000);
         } else if (data.status == 5) {
-          $("#register-btn").text("Wrong registration code");
+          showError("Wrong registration code");
           hideLoader();
-
-          timer = setTimeout(function () {
-            regReset();
-          }, 1000);
         } else if (data.status == 4) {
-          $("#register-btn").text("Already registered");
+          showError("Already registered");
           hideLoader();
-
-          timer = setTimeout(function () {
-            regReset();
-          }, 1000);
         } else {
           switch (data.status) {
             case 1:
-              $("#register-btn").text("Connecting");
+              $("#loader-message").text("Connecting ...");
               break;
             case 2:
-              $("#register-btn").text("Sending request");
+              $("#loader-message").text("Sending request ...");
               break;
             case 3:
-              $("#register-btn").text("Receiving response");
+              $("#loader-message").text("Receiving response ...");
               break;
             default:
               break;
           }
-          timer = setTimeout(regStatus, 1000);
-          hideLoader();
+          setTimeout(regStatus, 1000);
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        timer = null;
-        timer = setTimeout(regStatus, 1000);
+        showError("Something goes wrong :(");
         hideLoader();
       });
   }
 
   function registerDevice() {
-    $("#register-btn").addClass("disabled");
+    $("#register-btn").data("disabled", true);
 
     $.ajax({
       type: "POST",
@@ -337,8 +305,9 @@ $(document).ready(() => {
           console.log("Registration started");
           console.log(data);
           //location.assign('./success.html')
-          $("#register-btn").text("Preparing");
-          timer = setTimeout(regStatus, 1000);
+          $("#loader-message").text("Preparing ...");
+	  showLoader();
+          setTimeout(regStatus, 1000);
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
@@ -408,7 +377,6 @@ $(document).ready(() => {
     hideLoader()
     switch (device) {
       case "Android":
-        //location.assign('https://play.google.com/store/apps/details?id=com.phonegap.growee&hl=en');
         location.assign("market://details?id=com.phonegap.growee");
         break;
       case "iOS":
@@ -420,15 +388,23 @@ $(document).ready(() => {
   }
 
   function showLoader() {
+    $(".loader").data("shown", true);
+    $("#loader-message").text("This may take a few moments...");
     $("#loader-parent").css({ "display": "initial", "z-index": "9999" });
     $("#loader-message").css({ "display": "initial" });
     $("#layout").css({ "opacity": "0.2" });
+    hideError();
   }
 
   function hideLoader() {
+    $(".loader").data("shown", false);
     $("#loader-parent").css({ "display": "none" });
     $("#loader-message").css({ "display": "none" });
     $("#layout").css({ "opacity": "1" });
+  }
+
+  function loaderShown() {
+    return $("#loader").data("shown");
   }
 
   function showError(msg) {
@@ -446,6 +422,7 @@ $(document).ready(() => {
     $("#error").css({
       "padding-bottom": "0px"
     })
+    $(".input-error").css({ "border-color": "initial" })
   }
 
   window.on_network_click = on_network_click;
@@ -453,15 +430,17 @@ $(document).ready(() => {
   //events
   //screen 1
   $("#login-btn").click(() => {
-    setTimeout(() => {
-      login();
-    }, 1000);
-    showLoader();
+    if (!loaderShown()) {
+      setTimeout(() => {
+        login();
+      }, 1000);
+      showLoader();
+    }
   });
 
   //screen 2
   $("#scan-btn").click(() => {
-    if (!timer) {
+    if (!loaderShown()) {
       showLoader();
       scan();
     }
@@ -496,8 +475,12 @@ $(document).ready(() => {
     event.preventDefault();
   });
 
+  $("input").focusin(() => {
+      hideError();
+  });
+
   $("#network-connect-btn").click(() => {
-    if (!$("#network-connect-btn").hasClass("disabled")) {
+    if (!loaderShown()) {
       showLoader();
       $("#section-2").submit();
     }
@@ -515,7 +498,7 @@ $(document).ready(() => {
   });
 
   $("#register-btn").click(() => {
-    if (!timer) {
+    if (!loaderShown()) {
       setTimeout(() => {
         registerDevice();
       }, 1000);
@@ -532,9 +515,9 @@ $(document).ready(() => {
   });
 
   $("#app-store-btn").click(() => {
-    if (timer) return;
+    if (loaderShown()) return;
 
-    showLoader()
+    showLoader();
     $.ajax({
       type: "POST",
       url: `${baseUrl}/wifi`,
@@ -549,13 +532,8 @@ $(document).ready(() => {
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log("Disconnect failed");
-        hideLoader()
+        hideLoader();
         locateToMagazine();
       });
-  });
-
-  $("input").keypress(function () {
-    $(".input-error").css({ "border-color": "initial" })
-    hideError()
   });
 });
