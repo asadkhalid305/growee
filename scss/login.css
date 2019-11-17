@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("../assets/fonts/Lato/Lato-Regular.ttf");
+}
+
 body section #section-2 #login-btn a {
   width: 100%;
   padding: 0.75em 0;
   text-align: center;
-  border-radius: 1.375em;
-  background-color: #61e48b;
-  color: white;
+  border-radius: 2.5em;
+  background-color: #50e17e;
+  color: #ffffff;
   font-size: 1.25em;
   font-weight: 600;
+  opacity: 90%;
+  font-family: 'Lato-Regular', sans-serif;
 }
 
 body nav {
@@ -21,7 +28,7 @@ body nav {
 }
 
 body nav img {
-  width: 35%;
+  width: 40%;
   margin: auto;
 }
 
@@ -40,26 +47,31 @@ body footer div {
   background-color: #e7e7e7;
   margin: auto;
   width: 25%;
-  padding: 2px 0;
-}
-
-body footer #bar1 {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-body footer #bar4 {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  padding: 3px 0;
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat-Medium';
   src: url("../assets/fonts/Montserrat/Montserrat-Medium.ttf");
 }
 
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url("../assets/fonts/Montserrat/Montserrat-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url("../assets/fonts/Montserrat/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("../assets/fonts/Lato/Lato-Light.ttf");
+}
+
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat-Medium', sans-serif;
 }
 
 a {
@@ -88,7 +100,7 @@ input {
   text-align: center;
   width: inherit;
   top: 88vh;
-  font-size: 3vw;
+  font-size: 5vw;
 }
 
 #loader-parent {
@@ -100,7 +112,7 @@ input {
 
 @media (min-width: 720px) {
   nav img {
-    width: 25% !important;
+    width: 30% !important;
   }
   section,
   footer {
@@ -108,7 +120,7 @@ input {
     margin: 0 auto !important;
   }
   section #section-1 #login-cover {
-    font-size: 6.9vw !important;
+    font-size: 6.8vw !important;
   }
   section #section-1 #login-text {
     font-size: 4.67vw !important;
@@ -141,7 +153,7 @@ input {
             justify-content: start !important;
   }
   nav img {
-    width: 12% !important;
+    width: 18% !important;
     margin: auto 0 !important;
   }
   section,
@@ -232,18 +244,21 @@ body section #section-1 #login-cover {
   -ms-flex-preferred-size: 18vh;
       flex-basis: 18vh;
   text-align: center;
-  font-size: 8.6vw;
-  color: #9a9a9a;
+  font-size: 8.4vw;
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  opacity: 54%;
 }
 
 body section #section-1 #login-cover-logo {
   text-align: center;
   -ms-flex-preferred-size: 22vh;
       flex-basis: 22vh;
+  opacity: 85%;
 }
 
 body section #section-1 #login-cover-logo img {
-  width: 35%;
+  width: 50%;
 }
 
 body section #section-1 #login-text {
@@ -251,6 +266,8 @@ body section #section-1 #login-text {
   font-size: 5.84vw;
   -ms-flex-preferred-size: 16vh;
       flex-basis: 16vh;
+  font-family: 'Montserrat-Light', sans-serif;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 body section #section-2 {
@@ -276,5 +293,6 @@ body section #section-2 #login-btn {
 
 body footer #bar1 {
   background-color: #61e48b !important;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=login.css.map */

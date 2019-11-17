@@ -4,7 +4,7 @@
 @include for-tablet($min: 720px) {
     nav {
         img {
-            width: 25% !important;
+            width: 30% !important;
         }
     }
 
@@ -16,7 +16,7 @@
     section {
         #section-1 {
             #login-cover {
-                font-size: 6.9vw !important;
+                font-size: 6.8vw !important;
             }
 
             #login-text {
@@ -66,7 +66,7 @@
         justify-content: start !important;
 
         img {
-            width: 12% !important;
+            width: 18% !important;
             margin: auto 0 !important;
         }
     }

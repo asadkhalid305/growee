@@ -169,7 +169,7 @@ $(document).ready(() => {
       .done(data => {
         console.log(data);
         if (data.status <= 0) {
-	  showError("Password is incorrect");
+          showError("Password is incorrect");
           hideLoader();
         } else if (data.status == 6) {
           $("#loader-message").text("Connected! Storing data ...");
@@ -250,7 +250,7 @@ $(document).ready(() => {
           hideLoader();
         } else if (data.status == 6) {
           $("#loader-message").text("Registered!");
-          setTimeout(function() {
+          setTimeout(function () {
             location.assign("./success.html");
             hideLoader();
           }, 1000);
@@ -306,7 +306,7 @@ $(document).ready(() => {
           console.log(data);
           //location.assign('./success.html')
           $("#loader-message").text("Preparing ...");
-	  showLoader();
+          showLoader();
           setTimeout(regStatus, 1000);
         }
       })
@@ -410,11 +410,15 @@ $(document).ready(() => {
   function showError(msg) {
     $("#error").text(`${msg}`);
     $("#error").css({
-      "color": "red",
+      "color": "#bf3a3a",
+      "font-family": `'Montserrat-Light', sans-serif`,
       "text-align": "center",
       "padding-bottom": "12px"
     })
-    $(".input-error").css({ "border-color": "red" })
+    $(".input-error").css({
+      "background-color": "#fbfbfb",
+      "border-color": "#dc3d3d"
+    })
     $("input").val("");
   }
   function hideError() {
@@ -476,7 +480,7 @@ $(document).ready(() => {
   });
 
   $("input").focusin(() => {
-      hideError();
+    hideError();
   });
 
   $("#network-connect-btn").click(() => {

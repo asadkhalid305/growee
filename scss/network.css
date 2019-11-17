@@ -1,12 +1,18 @@
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("../assets/fonts/Lato/Lato-Regular.ttf");
+}
+
 body section #section-3 a {
   width: 100%;
   padding: 0.75em 0;
   text-align: center;
-  border-radius: 1.375em;
-  border: 2px solid #61e48b;
-  color: #61e48b;
+  border-radius: 2.5em;
+  border: 2px solid #50e17e;
+  color: #50e17e;
   font-size: 1.25em;
   font-weight: 600;
+  font-family: 'Lato-Regular', sans-serif;
 }
 
 body nav {
@@ -21,7 +27,7 @@ body nav {
 }
 
 body nav img {
-  width: 35%;
+  width: 40%;
   margin: auto;
 }
 
@@ -40,26 +46,31 @@ body footer div {
   background-color: #e7e7e7;
   margin: auto;
   width: 25%;
-  padding: 2px 0;
-}
-
-body footer #bar1 {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-body footer #bar4 {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  padding: 3px 0;
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat-Medium';
   src: url("../assets/fonts/Montserrat/Montserrat-Medium.ttf");
 }
 
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url("../assets/fonts/Montserrat/Montserrat-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url("../assets/fonts/Montserrat/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("../assets/fonts/Lato/Lato-Light.ttf");
+}
+
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat-Medium', sans-serif;
 }
 
 a {
@@ -88,7 +99,7 @@ input {
   text-align: center;
   width: inherit;
   top: 88vh;
-  font-size: 3vw;
+  font-size: 5vw;
 }
 
 #loader-parent {
@@ -100,7 +111,7 @@ input {
 
 @media (min-width: 720px) {
   nav img {
-    width: 25% !important;
+    width: 30% !important;
   }
   section,
   footer {
@@ -108,7 +119,7 @@ input {
     margin: 0 auto !important;
   }
   section #section-1 #login-cover {
-    font-size: 6.9vw !important;
+    font-size: 6.8vw !important;
   }
   section #section-1 #login-text {
     font-size: 4.67vw !important;
@@ -141,7 +152,7 @@ input {
             justify-content: start !important;
   }
   nav img {
-    width: 12% !important;
+    width: 18% !important;
     margin: auto 0 !important;
   }
   section,
@@ -233,7 +244,9 @@ body section #section-1 #network-cover {
       flex-basis: 16vh;
   text-align: center;
   font-size: 8vw;
-  color: #9a9a9a;
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  opacity: 54%;
 }
 
 body section #section-1 #bar {
@@ -282,6 +295,8 @@ body section #section-2 #networks .network a {
   -webkit-box-flex: 0.8;
       -ms-flex: 0.8;
           flex: 0.8;
+  color: #000000;
+  font-family: 'Lato-Light', sans-serif;
 }
 
 body section #section-2 #networks .network img {
@@ -310,5 +325,10 @@ body section #section-3 a {
 body footer #bar1,
 body footer #bar2 {
   background-color: #61e48b !important;
+}
+
+body footer #bar2 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 /*# sourceMappingURL=network.css.map */

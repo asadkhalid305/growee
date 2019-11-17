@@ -36,7 +36,9 @@ body {
                 flex-basis: 16vh;
                 text-align: center;
                 font-size: 8vw;
-                color: #9a9a9a;
+                color: rgba(0, 0, 0, 0.54);
+                font-family: 'Montserrat-SemiBold', sans-serif;
+                opacity: 54%;
             }
 
             #bar {
@@ -65,6 +67,8 @@ body {
 
                     a {
                         flex: 0.8;
+                        color: #000000;
+                        font-family: 'Lato-Light', sans-serif;
                     }
 
                     img {
@@ -100,82 +104,10 @@ body {
         #bar2 {
             background-color: #61e48b !important;
         }
+
+        #bar2 {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
     }
 }
-
-// @include for-tablet($min: 416px) {
-//     section {
-//         #section-2 {
-//             #networks {
-//                 .network {
-//                     padding: 12px 0;
-
-//                     a {
-//                         font-size: 1.5em;
-//                     }
-
-//                     img {
-//                         height: 22px !important;
-//                     }
-//                 }
-//             }
-//         }
-
-//         #section-3 {
-//             a {
-//                 font-size: 2em !important;
-//             }
-//         }
-//     }
-// }
-
-// @include for-tablet($min: 769px) {
-//     section {
-//         #section-2 {
-//             #networks {
-//                 .network {
-//                     a {
-//                         font-size: 2em;
-//                     }
-
-//                     img {
-//                         height: 25px !important;
-//                     }
-//                 }
-//             }
-//         }
-
-//         #section-3 {
-//             a {
-//                 font-size: 2.5em !important;
-//             }
-//         }
-//     }
-// }
-
-
-// @include for-desktop($min: 1025px) {
-//     section {
-//         #section-2 {
-//             #networks {
-//                 .network {
-//                     a {
-//                         font-size: 1em !important;
-//                     }
-
-//                     img {
-//                         height: 16px !important;
-//                     }
-//                 }
-//             }
-//         }
-
-//         #section-3 {
-//             a {
-//                 font-size: 1.2em !important;
-//                 width: 60% !important;
-//                 padding: 0.6em 0;
-//             }
-//         }
-//     }
-// }
