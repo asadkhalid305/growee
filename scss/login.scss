@@ -35,25 +35,28 @@ body {
             #login-cover {
                 flex-basis: 18vh;
                 text-align: center;
-                font-size: 8.6vw;
-                color: #9a9a9a;
+                font-size: 8.4vw;
+                color: rgba(0, 0, 0, 0.54);
+                font-family: 'Montserrat-SemiBold', sans-serif;
+                opacity: 54%;
             }
 
             #login-cover-logo {
                 text-align: center;
                 flex-basis: 22vh;
+                opacity: 85%;
 
                 img {
-                    width: 35%;
+                    width: 50%;
                 }
             }
 
             #login-text {
                 text-align: center;
-                // font-size: 1.14em;
                 font-size: 5.84vw;
-                // padding-bottom: 3.625em;
                 flex-basis: 16vh;
+                font-family: 'Montserrat-Light', sans-serif;
+                color: rgba(0, 0, 0, 0.9);
             }
         }
 
@@ -77,62 +80,7 @@ body {
 
         #bar1 {
             background-color: #61e48b !important;
+            border-radius: 5px;
         }
     }
-}
-
-@include for-tablet($min: 416px) {
-    section {
-        // #section-1 {
-        //     #login-text {
-        //         // font-size: 1.5em !important;
-        //     }
-        // }
-
-        // #section-2 {
-        //     #login-btn {
-        //         a {
-        //             font-size: 1.2em !important;
-        //         }
-        //     }
-        // }
-    }
-}
-
-@include for-tablet($min: 769px) {
-    section {
-        // #section-1 {
-        //     #login-text {
-        //         // font-size: 2.5em !important;
-        //     }
-        // }
-
-        // #section-2 {
-        //     #login-btn {
-        //         a {
-        //             font-size: 2.5em !important;
-        //         }
-        //     }
-        // }
-    }
-}
-
-@include for-desktop($min: 1025px) {
-    // section {
-    //     #section-1 {
-    //         #login-text {
-    //             // font-size: 1.5em !important;
-    //         }
-    //     }
-
-    //     #section-2 {
-    //         #login-btn {
-    //             a {
-    //                 font-size: 1.2em !important;
-    //                 width: 60% !important;
-    //                 padding: 0.6em 0;
-    //             }
-    //         }
-    //     }
-    // }
 }
