@@ -146,7 +146,7 @@ $(document).ready(() => {
     })
       .done(data => {
         console.log(data);
-        location.assign("./registration.html");
+        location.assign("./");
         hideLoader();
       })
       .fail((jqXHR, textStatus, errorThrown) => {
